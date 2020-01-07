@@ -1,13 +1,14 @@
 class Owner
-  attr_accessor :pets, :name
-  attr_reader :species
+  attr_accessor :pets
+  attr_reader :species, :name
 
   @@all = []
 
-  def initialize(species)
-    @species = species
+  def initialize(name)
+    @species = species = "human"
+    @name = name
     @@all << self
-    @pets = {:dogs => [], :cats => []}
+    @@pets = {:dogs => [], :cats => []}
   end
  
 
@@ -29,6 +30,10 @@ class Owner
   
   def buy_cat(cat)
     @@pets[:cats] << Cat.new(cat)
+  end
+  
+  def say_species
+    "I am a #{@species}."
   end
   
   
